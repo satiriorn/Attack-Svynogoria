@@ -1,6 +1,5 @@
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler,  CommandHandler
-import os, requests, time, threading, socket
-from DDos import checkUrl, DDos
+import os, requests, time, threading
 
 class Thread:
     def __init__(self, func = None, arg =None):
