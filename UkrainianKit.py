@@ -40,7 +40,7 @@ class UkrKit(object):
         while True:
             try:
                 req = requests.get(self.SvynogoriaServices[0])
-                time.sleep(2)
+                time.sleep(0.3)
                 print(req)
                 num += 1
                 if last_num + 50 < num and last_num != 0:
