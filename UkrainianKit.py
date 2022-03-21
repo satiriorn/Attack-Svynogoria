@@ -1,5 +1,5 @@
 from telegram.ext import Updater, MessageHandler, Filters, CallbackQueryHandler,  CommandHandler
-import os, requests, time, threading
+import os, requests, time, threading, cc
 
 class Thread:
     def __init__(self, func = None, arg =None):
@@ -45,7 +45,8 @@ class UkrKit(object):
         #fail_num = 0
 
         #while True:
-        os.system("python Kit.py -s 213.109.72.155 -p 443")
+        cc.run()
+        #os.system("python сс.py")
 
         #while True:
         #    try:
