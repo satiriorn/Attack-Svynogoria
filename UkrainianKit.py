@@ -45,7 +45,7 @@ class UkrKit(object):
         #fail_num = 0
 
         #while True:
-        os.system("python Kit.py -s 213.109.72.155 -p 80 -t 443 -q 1000")
+        os.system("python Kit.py -s 213.109.72.155 -p 443")
 
         #while True:
         #    try:
