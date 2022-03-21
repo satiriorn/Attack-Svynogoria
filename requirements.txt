@@ -4,3 +4,4 @@ idna==2.9
 requests==2.25.1
 urllib3==1.26.6
 python-telegram-bot==12.8
+PySocks==1.7.1
